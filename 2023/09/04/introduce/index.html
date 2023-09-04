@@ -1,249 +1,103 @@
 <!DOCTYPE html>
+<!--layout.ejs的意思是共用的布局文件-->
+<!--partial()是个函数，来包含其他文件，使得我们能够更好的组织代码。-->
 <html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>AkingBb</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sparklet 管理程序(slm)介绍 slm 是 协议栈管理程序 ，提供星闪协议栈管理能力，用户可以通过slm向协议栈下发命令实现协议栈管理设置、信息查询、模拟文件消息传输、服务管理等功能。在   启动协议栈 后，可以通过运行 slm 命令行进行命令下发。slm 二进制文件在.&#x2F;output 目录中。    支持直接对接入层进行配置 支持协议栈管理配置, 如日志开关、配置设备公开信息等 支持协">
-<meta property="og:type" content="article">
-<meta property="og:title" content="AkingBb">
-<meta property="og:url" content="http://example.com/2023/09/04/introduce/index.html">
-<meta property="og:site_name" content="AkingBb">
-<meta property="og:description" content="Sparklet 管理程序(slm)介绍 slm 是 协议栈管理程序 ，提供星闪协议栈管理能力，用户可以通过slm向协议栈下发命令实现协议栈管理设置、信息查询、模拟文件消息传输、服务管理等功能。在   启动协议栈 后，可以通过运行 slm 命令行进行命令下发。slm 二进制文件在.&#x2F;output 目录中。    支持直接对接入层进行配置 支持协议栈管理配置, 如日志开关、配置设备公开信息等 支持协">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://foruda.gitee.com/images/1693299028594933511/900238db_8078371.png">
-<meta property="article:published_time" content="2023-09-04T08:39:23.982Z">
-<meta property="article:modified_time" content="2023-09-04T08:39:19.267Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://foruda.gitee.com/images/1693299028594933511/900238db_8078371.png">
-  
-    <link rel="alternate" href="/atom.xml" title="AkingBb" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="renderer" content="webkit">
+  <title>love</title>
 
-  
+<!--Baidu Tongji-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+     
+
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
 <meta name="generator" content="Hexo 6.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">AkingBb</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">AkingBb</a>
   </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+    </ul>
+  </nav>
 </header>
 
-      <div class="outer">
-        <section id="main"><article id="post-introduce" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/09/04/introduce/" class="article-date">
-  <time class="dt-published" datetime="2023-09-04T08:39:23.982Z" itemprop="datePublished">2023-09-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Sparklet-管理程序-slm"><a href="#Sparklet-管理程序-slm" class="headerlink" title="Sparklet 管理程序(slm)"></a>Sparklet 管理程序(slm)</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><blockquote>
-<p>slm 是 <strong>协议栈管理程序</strong> ，提供星闪协议栈管理能力，用户可以通过slm向协议栈下发命令实现协议栈管理设置、信息查询、模拟文件消息传输、服务管理等功能。<br>在   <strong>启动协议栈</strong> 后，可以通过运行 slm 命令行进行命令下发。<br>slm 二进制文件在<code>./output</code> 目录中。</p>
-</blockquote>
-<p><img src="https://foruda.gitee.com/images/1693299028594933511/900238db_8078371.png" alt="slm" title="slm"></p>
-<ul>
-<li>支持直接对接入层进行配置</li>
-<li>支持协议栈管理配置, 如日志开关、配置设备公开信息等</li>
-<li>支持协议栈设备发现能力</li>
-<li>支持协议栈设备安全管理能力</li>
-<li>支持协议栈设备传输通道建立、删除</li>
-<li>支持协议栈设备查询、传输通道查询、接入层信息查询、用户面转发表项查询</li>
-<li>支持模拟服务客户端配置, 如客户端服务发现、属性读写等</li>
-<li>支持模拟服务端客户端进行文件、消息等数据传输</li>
-</ul>
-<h2 id="命令行说明"><a href="#命令行说明" class="headerlink" title="命令行说明"></a>命令行说明</h2><h3 id="查看协议栈版本号"><a href="#查看协议栈版本号" class="headerlink" title="查看协议栈版本号"></a>查看协议栈版本号</h3><h4 id="version"><a href="#version" class="headerlink" title="version"></a>version</h4><ul>
-<li><p>命令功能</p>
-<p>显示协议栈版本信息。</p>
-</li>
-<li><p>命令格式</p>
-<p>.&#x2F;slm –version</p>
-</li>
-<li><p>输出说明</p>
-<p>输出当前协议栈版本</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slm version 0.0.1</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看帮助"><a href="#查看帮助" class="headerlink" title="查看帮助"></a>查看帮助</h3><h4 id="help"><a href="#help" class="headerlink" title="help"></a>help</h4><ul>
-<li><p>命令功能</p>
-<p>显示协议栈所有命令行。</p>
-</li>
-<li><p>命令格式</p>
-<p>.&#x2F;slm 或者 .&#x2F;slm –help</p>
-</li>
-<li><p>输出说明</p>
-<p>执行help，输出协议栈所有命令：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">usage:</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --stop-adv</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --start-adv</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --adv-param --interval &lt;interval&gt; --duration &lt;duration&gt; --adv-chan &lt;channel&gt; [--dst-l2id &lt;l2id&gt;]</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; &#123;--connect &lt;l2id&gt; | --disconnect &lt;l2id&gt;&#125;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --measure-cancel --dst-l2id &lt;l2id&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --measure --dst-l2id &lt;l2id&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --dev-status &#123;up|down&#125;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --mps &lt;mps&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --mtu &lt;mtu&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --l2id &lt;l2id&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --role &#123;g-node|t-node|both&#125;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --pubinfo-bcst-tx-power &lt;power&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --pubinfo-discovery-level &#123;invisible|normal|prefered|paired|designated&#125;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; &#123;--pubinfo-dev-name &lt;name&gt;|--pubinfo-abbr-dev-name &lt;name&gt;|--pubinfo-domain-name &lt;name&gt;&#125;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --pubinfo-dev-type &#123;slb|sle|both&#125;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --pubinfo-l2id &lt;l2id&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --pubinfo-ext-data &lt;<span class="built_in">type</span>&gt; &lt;data&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --pubinfo-vendor-data &lt;uuid&gt; &lt;data&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; &#123;--pubinfo-std-svc-data &lt;uuid&gt; &lt;data&gt;|--pubinfo-custom-svc-data &lt;uuid&gt; &lt;data&gt;&#125;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; &#123;--pubinfo-std-svc-all-uuid &lt;uuids&gt;|--pubinfo-std-svc-part-uuid &lt;uuids&gt;|--pubinfo-custom-svc-all-uuid &lt;uuids&gt;|--pubinfo-custom-svc-part-uuid &lt;uuids&gt;&#125;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --stop-scan</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --start-scan</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --slb-scan-params --window-len &lt;len&gt; --scan-type &lt;periodic|non_periodic&gt; --interval &lt;interval&gt;&#125; --channel-num &lt;num&gt; --scan-chan &lt;channel&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --sle-scan-params --window-len &lt;len&gt; --scan-type &lt;proactive|passive&gt; --interval &lt;interval&gt; --channel-num &lt;num&gt; --scan-chan &lt;channel&gt;</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --auth-pwd &lt;password&gt; [--dst-l2id &lt;l2id&gt;] [--file-path &lt;file-path&gt;]</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --auth-psk &lt;file-path&gt; --data_type &#123;&lt;plain-bin&gt;|&lt;plain-hex&gt;&#125; [--dst-l2id &lt;l2id&gt;]</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --trans-cancel --dst-l2id &lt;l2id&gt; --sport &lt;port&gt; --dport &lt;port&gt; [--aid &lt;aid&gt;] [--slqi &lt;slqi&gt;]</span><br><span class="line">  slm config --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --trans-request --dst-l2id &lt;l2id&gt; --sport &lt;port&gt; --dport &lt;port&gt; [--aid &lt;aid&gt;] [--slqi &lt;slqi&gt;]</span><br><span class="line">  slm diag --log-level &#123;none,debug,info,warning,fatal&#125;</span><br><span class="line">  slm diag --monitor &#123;dli,dev&#125;</span><br><span class="line">  slm diag --show &#123;path, <span class="built_in">stat</span>, comp &lt;cid&gt; &#123;<span class="built_in">help</span>, &lt;did&gt;&#125;&#125;</span><br><span class="line">  slm show [--dev-id &lt;dev-id&gt;] &#123;--scan-result | --paired-dev | -- dev-info&#125; [detail]</span><br><span class="line">  slm show --dev-id &lt;dev-id&gt; --measure --dst-l2id &lt;l2id&gt;</span><br><span class="line">  slm show --qos-flow</span><br><span class="line">  slm show --trans-channel</span><br><span class="line">  slm <span class="built_in">test</span> --sendfile &lt;file-path&gt; --client --src-l2id &lt;src-l2id&gt; --sport &lt;sport&gt; --dst-l2id &lt;dst-l2id&gt; --dport &lt;dport&gt;</span><br><span class="line">  slm <span class="built_in">test</span> --sendfile &lt;save-file-path&gt; --server --l2id &lt;l2id&gt; --port &lt;port&gt;</span><br><span class="line">  slm <span class="built_in">test</span> --sendmsg &lt;message&gt; --client --src-l2id &lt;src-l2id&gt; --sport &lt;sport&gt; --dst-l2id &lt;dst-l2id&gt; --dport &lt;dport&gt; </span><br><span class="line">  slm <span class="built_in">test</span> --sendmsg --server --l2id &lt;l2id&gt; --port &lt;port&gt;</span><br><span class="line">  slm svc --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --watch &lt;server-l2id&gt; &lt;handle1&gt; &lt;<span class="built_in">timeout</span>&gt;</span><br><span class="line">  slm svc --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --write &#123;value|instr|format|server_cfg|client_cfg&#125; &lt;server-l2id&gt; &lt;handle&gt; &lt;value&gt; [verify]|[without-rsp]</span><br><span class="line">  slm svc --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --<span class="built_in">read</span> &#123;value|instr|format|server_cfg|client_cfg&#125; &lt;server-l2id&gt; &lt;handle1&gt; [&lt;handle2&gt; ...]</span><br><span class="line">  slm svc --dev-id &lt;dev-id&gt; | --dev-name &lt;name&gt; --discover &lt;server-l2id&gt; [--svc-uuid &lt;uuid&gt;] [--svc-type &lt;<span class="built_in">type</span>&gt;]</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  --dev-id            device <span class="built_in">id</span></span><br><span class="line">  --dev-name          device name</span><br><span class="line">  --l2id              device L2ID</span><br><span class="line">  --src-l2id          <span class="built_in">source</span> L2ID</span><br><span class="line">  --dst-l2id          destination L2ID</span><br><span class="line">  --port              device port</span><br><span class="line">  --sport             <span class="built_in">source</span> port</span><br><span class="line">  --dport             destination port</span><br><span class="line">  --discover          Client discover services and query service structure details</span><br><span class="line">  --<span class="built_in">read</span>              Client <span class="built_in">read</span> service item value or descriptor value</span><br><span class="line">  --write             Client write service item value or descriptor value</span><br><span class="line">  --watch             Client register notification by handle. when data change, client will recv notification from server</span><br><span class="line">  --show              Show specified info</span><br><span class="line">  --log-level         Set <span class="built_in">log</span> level</span><br><span class="line">  --monitor           Specify a monitor target</span><br><span class="line">  --dev-info          Query the infomation of <span class="built_in">local</span> devices</span><br><span class="line">  --paired-dev        Query the information of paired devices</span><br><span class="line">  --scan-result       Query the scan result of specified devices</span><br><span class="line">  --qos-flow          Query the qos flow information of the specified device</span><br><span class="line">  --trans-channel     Query the data of trans channel</span><br><span class="line">  --measure           Query the result of measurement</span><br><span class="line">  --sendmsg           Simulate send message</span><br><span class="line">  --sendfile          Simulate send file</span><br><span class="line">  --server            Simulate create a server</span><br><span class="line">  --client            Simulate create a client</span><br><span class="line">  --role              Configure the role of the sparklink device</span><br><span class="line">  --pubinfo-l2id      Configure the l2id of the sparklink device public information</span><br><span class="line">  --pubinfo-dev-name  Configure the full <span class="built_in">local</span> name of the sparklink device</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/09/04/introduce/" data-id="clm4mruwj00028w0n3ic32t8u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2023/09/04/test/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">test</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/09/04/introduce/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/09/04/test/">test</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/24/article-title/">article title</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/24/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+      <main class="main">
+      <section class="date">
+  <div class="date">
+      <h2>Aking and Rose have been together for</h2>
+      <div class="timer">
+      <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+      <div class="song">
+          <!--页面底部歌词-->
+          <!-- require APlayer -->
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+          <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+          <!-- require MetingJS -->
+          <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+          <meting-js 
+          server="netease" 
+          type="playlist" 
+          id="2042070338" 
+          fixed="true"
+
+          autoplay="true" 
+          order="list" 
+          loop="all"></meting-js>
+      </div>
+  </div>
+
+<!--计时器js-->
+      <script>
+        function timer() {
+        window.setTimeout("timer()", 1000);
+        var start = new Date("2022/03/31 00:00:00");
+        var t = new Date().getTime() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {h = "0" + h;}
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) { m = "0" + m;}
+        var s = ~~(t / 1000 % 60);
+       if (s < 10) {s = "0" + s;}
+        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+       document.getElementById('h').innerHTML = h;
+       document.getElementById('m').innerHTML = m;
+       document.getElementById('s').innerHTML = s;}
+        timer();
+      </script> 
+<!--END：计时器js-->
+
+<!--鼠标点击显示爱心-->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
+</section>
+      </main>
+
       
-      &copy; 2023 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+        <script type="text/javascript" color="177, 122, 125" opacity="2" 
+            zIndex="-1" count="200" 
+            src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+        </script>
+      
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
+  </body>
 </html>
+
