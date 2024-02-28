@@ -40,11 +40,27 @@
 
       <main class="main">
       <section class="date">
+
+  <head>
+    <style>
+      .container {
+        width: 90%;
+        margin: 20px auto;
+        background-color: #FFF;
+        padding: 20px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js"
+      integrity="sha512-bXc1hnpHIf7iKIkKlTX4x0A0zwTiD/FjGTy7rxUERPZIkHgznXrN/2qipZuKp/M3MIcVIdjF4siFugoIc2fL0A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
   <div class="date">
     <h2>
       Aking and Rose have been together for
     </h2>
-    <img src="/img/404.jpg" alt="图片描述">
     <div class="timer">
       <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
     </div>
@@ -84,6 +100,17 @@
 
   <!--鼠标点击显示爱心-->
   <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
+
+  <script>
+    $(function () {
+      $(".container").css({ opacity: 0.8 });
+      //设置透明度
+      $.backstretch([
+        "/img/404.jpg",
+        "/img/avatar.jpg"
+      ], { duration: 3000, fade: 750 });
+    }); 
+  </script>
 </section>
       </main>
 
