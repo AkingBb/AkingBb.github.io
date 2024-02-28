@@ -41,51 +41,49 @@
       <main class="main">
       <section class="date">
   <div class="date">
-      <h2>Aking and Rose have been together for</h2>
-      <div class="timer">
+    <h2>
+      Aking and Rose have been together for
+    </h2>
+    <img src="/img/404.jpg" alt="图片描述">
+    <div class="timer">
       <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
-      </div>
-      <div class="song">
-          <!--页面底部歌词-->
-          <!-- require APlayer -->
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-          <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-          <!-- require MetingJS -->
-          <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-          <meting-js 
-          server="netease" 
-          type="playlist" 
-          id="9330561931" 
-          fixed="true"
-
-          autoplay="true" 
-          order="list" 
-          loop="all"></meting-js>
-      </div>
+    </div>
+    <div class="song">
+      <!--页面底部歌词-->
+      <!-- require APlayer -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+      <!-- require MetingJS -->
+      <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+      <meting-js server="netease" type="playlist" id="9330561931"
+        fixed="true" autoplay="true"
+        order="list" loop="all"></meting-js>
+    </div>
   </div>
 
-<!--计时器js-->
-      <script>
-        function timer() {
-        window.setTimeout("timer()", 1000);
-        var start = new Date("2022/03/31 00:00:00");
-        var t = new Date().getTime() - start;
-        var h = ~~(t / 1000 / 60 / 60 % 24);
-        if (h < 10) {h = "0" + h;}
-        var m = ~~(t / 1000 / 60 % 60);
-        if (m < 10) { m = "0" + m;}
-        var s = ~~(t / 1000 % 60);
-       if (s < 10) {s = "0" + s;}
-        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
-       document.getElementById('h').innerHTML = h;
-       document.getElementById('m').innerHTML = m;
-       document.getElementById('s').innerHTML = s;}
-        timer();
-      </script> 
-<!--END：计时器js-->
+  <!--计时器js-->
+  <script>
+    function timer() {
+      window.setTimeout("timer()", 1000);
+      var start = new Date("2022/03/31 00:00:00");
+      var t = new Date().getTime() - start;
+      var h = ~~(t / 1000 / 60 / 60 % 24);
+      if (h < 10) { h = "0" + h; }
+      var m = ~~(t / 1000 / 60 % 60);
+      if (m < 10) { m = "0" + m; }
+      var s = ~~(t / 1000 % 60);
+      if (s < 10) { s = "0" + s; }
+      document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+      document.getElementById('h').innerHTML = h;
+      document.getElementById('m').innerHTML = m;
+      document.getElementById('s').innerHTML = s;
+    }
+    timer();
+  </script>
+  <!--END：计时器js-->
 
-<!--鼠标点击显示爱心-->
-<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
+  <!--鼠标点击显示爱心-->
+  <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
 </section>
       </main>
 
