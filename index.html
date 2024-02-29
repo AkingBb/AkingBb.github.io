@@ -56,10 +56,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js"
       integrity="sha512-bXc1hnpHIf7iKIkKlTX4x0A0zwTiD/FjGTy7rxUERPZIkHgznXrN/2qipZuKp/M3MIcVIdjF4siFugoIc2fL0A=="
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- 引入 Vue 和 Element UI 相关的 CDN 链接 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
   </head>
   <div class="date">
+    <!-- 在合适的地方插入 Vue 模板代码 -->
+    <div id="app">
+      <el-row>
+        <el-col :span="12">
+          <!-- 第一个头像 -->
+          <el-avatar :size="120" src="/img/aking.jpg"></el-avatar>
+        </el-col>
+        <el-col :span="12">
+          <!-- 第二个头像 -->
+          <el-avatar :size="120" src="/img/rose.jpg"></el-avatar>
+        </el-col>
+      </el-row>
+    </div>
     <h2>
-      Aking and Rose have been together for
+      Aking and Rose
+    </h2>
+    <h2>
+      have been together for
     </h2>
     <div class="timer">
       <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
@@ -70,10 +90,12 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
       <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
       <!-- require MetingJS -->
-      <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"
+        integrity="sha512-/IDbuuVE9yEqGRO0rCzXN1jIU1ZFkVd3TMLuK3HkmD4fCCwoIAkrqcK8KPYcIMDF/Z/pQ2mMOTPYS07qM/7VsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <meting-js server="netease" type="playlist" id="9330561931"
-        fixed="true" autoplay="false"
-        order="random" loop="all"></meting-js>
+        fixed="true" autoplay="true" loop="all" order="random" preload="auto" list-folded="true" list-max-height="500px"
+        lrc-type="1"></meting-js>
     </div>
   </div>
 
@@ -98,18 +120,31 @@
   </script>
   <!--END：计时器js-->
 
+  <script>
+    new Vue({
+      el: '#app',
+    });
+  </script>
+
   <!--鼠标点击显示爱心-->
   <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
 
   <script>
-    $(function () {
-      $(".container").css({ opacity: 0.8 });
-      //设置透明度
-      $.backstretch([
-        "/img/404.jpg",
-        "/img/avatar.jpg"
-      ], { duration: 3000, fade: 750 });
-    }); 
+    // 动态背景墙
+    // $(function () {
+    //   $(".container").css({ opacity: 0.8 });
+    //   //设置透明度
+    //   $.backstretch([
+    //     "/img/1.jpg",
+    //     "/img/2.jpg",
+    //     "/img/3.jpg",
+    //     "/img/4.jpg",
+    //     "/img/5.jpg",
+    //     "/img/6.jpg",
+    //     "/img/7.jpg",
+    //     "/img/8.jpg",
+    //   ], { duration: 3000, fade: 750 });
+    // }); 
   </script>
 </section>
       </main>
