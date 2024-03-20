@@ -42,6 +42,9 @@
       <section class="date">
 
   <head>
+    <!-- 引入 Montserrat 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
       .container {
         width: 90%;
@@ -49,7 +52,17 @@
         background-color: transparent;
         padding: 20px;
       }
+
+      /* 将所有文字的字体设置为 Montserrat */
+      div {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+      }
     </style>
+
+    <!--鼠标点击显示爱心-->
+    <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -60,42 +73,68 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
     <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"
+      integrity="sha512-/IDbuuVE9yEqGRO0rCzXN1jIU1ZFkVd3TMLuK3HkmD4fCCwoIAkrqcK8KPYcIMDF/Z/pQ2mMOTPYS07qM/7VsA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
+
   <div class="date">
     <!-- 在合适的地方插入 Vue 模板代码 -->
     <div id="app">
-      <el-row>
-        <el-col :span="12">
-          <!-- 第一个头像 -->
-          <el-avatar :size="120" src="/img/aking.jpg"></el-avatar>
-        </el-col>
-        <el-col :span="12">
-          <!-- 第二个头像 -->
-          <el-avatar :size="120" src="/img/rose.jpg"></el-avatar>
-        </el-col>
-      </el-row>
-    </div>
-    <h2>
-      Aking and Rose
-    </h2>
-    <h2>
-      have been together for
-    </h2>
-    <div class="timer">
-      <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
-    </div>
-    <div class="song">
-      <!--页面底部歌词-->
-      <!-- require APlayer -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-      <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-      <!-- require MetingJS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"
-        integrity="sha512-/IDbuuVE9yEqGRO0rCzXN1jIU1ZFkVd3TMLuK3HkmD4fCCwoIAkrqcK8KPYcIMDF/Z/pQ2mMOTPYS07qM/7VsA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <meting-js server="netease" type="playlist" id="9330561931"
-        fixed="true" autoplay="true" loop="all" order="random" preload="auto" list-folded="true" list-max-height="500px"
-        lrc-type="1"></meting-js>
+      <!-- 首页内容 -->
+      <div v-show="!showingAlbum && !showingLetter">
+        <el-row>
+          <el-col :span="12">
+            <!-- 第一个头像 -->
+            <el-avatar :size="120" src="/img/aking.jpg"></el-avatar>
+          </el-col>
+          <el-col :span="12">
+            <!-- 第二个头像 -->
+            <el-avatar :size="120" src="/img/rose.jpg"></el-avatar>
+          </el-col>
+        </el-row>
+        <h2>
+          Aking 和 Rose
+        </h2>
+        <h2>
+          已经在一起
+        </h2>
+        <div class="timer">
+          <b id="d"></b> 天 <b id="h"></b> 小时 <b id="m"></b> 分钟 <b id="s"></b> 秒
+        </div>
+        <el-button @click="showAlbum" type="success">一些时刻</el-button> <!-- 添加按钮 -->
+        <el-button @click="showLetter" type="primary">一封信</el-button> <!-- 添加按钮 -->
+      </div>
+      <div class="song">
+        <!-- 页面底部歌词 -->
+        <meting-js v-show="true" server="netease" type="playlist"
+          id="9330561931" fixed="true" autoplay="true" loop="all" order="random" preload="auto"
+          list-folded="true" list-max-height="500px" lrc-type="1">
+        </meting-js>
+      </div>
+      <!-- 相册页面 -->
+      <div v-if="showingAlbum">
+        <!-- 这里放置相册内容 -->
+        <h2>相册页面</h2>
+        <!-- 这里放置相册内容 -->
+        <p>这是相册的内容...</p>
+        <!-- 这里放置相册内容 -->
+        <el-button @click="hideAlbum" type="primary">返回</el-button>
+      </div>
+
+      <!-- 信件页面 -->
+      <div v-if="showingLetter">
+        <!-- 这里放置信件内容 -->
+        <h2>信件页面</h2>
+        <!-- 这里放置信件内容 -->
+        <p>这是信件的内容...</p>
+        <!-- 这里放置信件内容 -->
+        <el-button @click="hideLetter" type="primary">返回</el-button>
+      </div>
     </div>
   </div>
 
@@ -106,11 +145,17 @@
       var start = new Date("2022/03/31 00:00:00");
       var t = new Date().getTime() - start;
       var h = ~~(t / 1000 / 60 / 60 % 24);
-      if (h < 10) { h = "0" + h; }
+      if (h < 10) {
+        h = "0" + h;
+      }
       var m = ~~(t / 1000 / 60 % 60);
-      if (m < 10) { m = "0" + m; }
+      if (m < 10) {
+        m = "0" + m;
+      }
       var s = ~~(t / 1000 % 60);
-      if (s < 10) { s = "0" + s; }
+      if (s < 10) {
+        s = "0" + s;
+      }
       document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
       document.getElementById('h').innerHTML = h;
       document.getElementById('m').innerHTML = m;
@@ -123,28 +168,36 @@
   <script>
     new Vue({
       el: '#app',
+      data() {
+        return {
+          showingAlbum: false,
+          showingLetter: false,
+          showMusicPlayer: false // 控制音乐播放器显示与隐藏
+        };
+      },
+      methods: {
+        showAlbum() {
+          this.showMusicPlayer = false; // 当展示相册时，隐藏音乐播放器
+          this.showingAlbum = true;
+        },
+        hideAlbum() {
+          this.showMusicPlayer = true; // 返回首页时显示音乐播放器
+          this.showingAlbum = false;
+        },
+        showLetter() {
+          this.showMusicPlayer = false; // 当展示信件时，隐藏音乐播放器
+          this.showingLetter = true;
+        },
+        hideLetter() {
+          this.showMusicPlayer = true; // 返回首页时显示音乐播放器
+          this.showingLetter = false;
+        }
+      },
+      mounted() {
+        // 页面加载完成后，自动隐藏音乐播放器
+        this.showMusicPlayer = true;
+      }
     });
-  </script>
-
-  <!--鼠标点击显示爱心-->
-  <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
-
-  <script>
-    // 动态背景墙
-    // $(function () {
-    //   $(".container").css({ opacity: 0.8 });
-    //   //设置透明度
-    //   $.backstretch([
-    //     "/img/1.jpg",
-    //     "/img/2.jpg",
-    //     "/img/3.jpg",
-    //     "/img/4.jpg",
-    //     "/img/5.jpg",
-    //     "/img/6.jpg",
-    //     "/img/7.jpg",
-    //     "/img/8.jpg",
-    //   ], { duration: 3000, fade: 750 });
-    // }); 
   </script>
 </section>
       </main>
