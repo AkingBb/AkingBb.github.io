@@ -34,16 +34,15 @@
   position: absolute;
   top: 20px;
   /* 调整邮票图片在垂直方向上的位置 */
-  right: 20px;
-  /* 调整邮票图片在水平方向上的位置 */
-  width: 80px;
-  /* 调整邮票图片的宽度 */
-  height: auto;
-  /* 根据宽度自动调整高度 */
-} */
+right: 20px;
+/* 调整邮票图片在水平方向上的位置 */
+width: 80px;
+/* 调整邮票图片的宽度 */
+height: auto;
+/* 根据宽度自动调整高度 */
+}
 
-
-.envelope {
+*/ .envelope {
   position: relative;
   /* 使邮票图片相对于信封定位 */
   width: 400px;
