@@ -1,0 +1,120 @@
+/* Custom styles for the envelope */
+.envelope {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 在 style 标签中添加这些样式 */
+.stamp-image {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  /* 根据需要调整邮票图片的尺寸 */
+  height: auto;
+  z-index: 10;
+  /* 确保邮票图片位于信封之上 */
+}
+
+.envelope {
+  width: 500px;
+  /* 调整信封的宽度 */
+  height: 400px;
+  /* 调整信封的高度 */
+  padding: 20px;
+  /* 添加内边距以增加信封的大小 */
+}
+
+/* .stamp-image {
+  position: absolute;
+  top: 20px;
+  /* 调整邮票图片在垂直方向上的位置 */
+  right: 20px;
+  /* 调整邮票图片在水平方向上的位置 */
+  width: 80px;
+  /* 调整邮票图片的宽度 */
+  height: auto;
+  /* 根据宽度自动调整高度 */
+} */
+
+
+.envelope {
+  position: relative;
+  /* 使邮票图片相对于信封定位 */
+  width: 400px;
+  /* 调整信封的宽度 */
+  height: 300px;
+  /* 调整信封的高度 */
+  background-color: #ffffff;
+  /* 设置信封的背景色 */
+  border: 1px solid #ccc;
+  /* 添加边框 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* 添加阴影效果 */
+  margin: 20px auto;
+  /* 居中显示 */
+}
+
+.envelope-title {
+  font-family: 'Satisfy', cursive;
+  /* 使用自定义字体 */
+  font-size: 24px;
+  /* 设置标题字体大小 */
+  color: #333;
+  /* 设置标题颜色 */
+  margin-bottom: 10px;
+  /* 设置标题与内容之间的间距 */
+}
+
+.envelope-text {
+  padding: 20px;
+  /* 设置内容区域的内边距 */
+  height: 200px;
+  /* 设置内容区域的高度 */
+  overflow: auto;
+  /* 添加内容溢出时的滚动条 */
+}
+
+.envelope-btn {
+  margin-top: 20px;
+  /* 设置按钮与内容之间的间距 */
+}
+
+.envelope-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.envelope-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.envelope-text {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.envelope-btn {
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.envelope-btn:hover {
+  background-color: #0056b3;
+}

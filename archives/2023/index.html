@@ -46,93 +46,124 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-      .container {
-        width: 90%;
-        margin: 20px auto;
-        background-color: transparent;
-        padding: 20px;
+      /* 适用于小屏幕设备的样式 */
+      @media screen and (max-width: 600px) {
+        .envelope {
+          width: 90%;
+          /* 使用百分比宽度以确保在小屏幕上自适应 */
+          margin: 0 auto;
+          /* 居中显示 */
+          padding: 10px;
+          /* 减少内边距以节省空间 */
+        }
       }
 
-      /* 将所有文字的字体设置为 Montserrat */
+      /* 将页面所有文字的字体设置为 Montserrat */
       div {
         font-family: 'Montserrat', sans-serif;
         font-size: 36px;
         font-weight: 700;
       }
+
+      @font-face {
+        font-family: 'Satisfy';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Satisfy Regular'), local('Satisfy-Regular'), url(font/rP2Hp2yn6lkG50LoCZOIHQ.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
     </style>
 
     <!--鼠标点击显示爱心-->
     <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js"
-      integrity="sha512-bXc1hnpHIf7iKIkKlTX4x0A0zwTiD/FjGTy7rxUERPZIkHgznXrN/2qipZuKp/M3MIcVIdjF4siFugoIc2fL0A=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js" "></script>
     <!-- 引入 Vue 和 Element UI 相关的 CDN 链接 -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/vue@2"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
     <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
     <!-- require APlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     <!-- require MetingJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"
-      integrity="sha512-/IDbuuVE9yEqGRO0rCzXN1jIU1ZFkVd3TMLuK3HkmD4fCCwoIAkrqcK8KPYcIMDF/Z/pQ2mMOTPYS07qM/7VsA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"></script>
+    <!-- Vuetify -->
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.5.8/dist/vuetify.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.5.8/dist/vuetify.min.js"></script>
+    <!-- Typed.js -->
+    <script src="/js/typed.js"></script>
+    <link rel="stylesheet" href="/css/envelope.css">
   </head>
 
-  <div class="date">
-    <!-- 在合适的地方插入 Vue 模板代码 -->
-    <div id="app">
-      <!-- 首页内容 -->
-      <div v-show="!showingAlbum && !showingLetter">
-        <el-row>
-          <el-col :span="12">
-            <!-- 第一个头像 -->
-            <el-avatar :size="120" src="/img/aking.jpg"></el-avatar>
-          </el-col>
-          <el-col :span="12">
-            <!-- 第二个头像 -->
-            <el-avatar :size="120" src="/img/rose.jpg"></el-avatar>
-          </el-col>
-        </el-row>
-        <h2>
-          Aking 和 Rose
-        </h2>
-        <h2>
-          已经在一起
-        </h2>
-        <div class="timer">
-          <b id="d"></b> 天 <b id="h"></b> 小时 <b id="m"></b> 分钟 <b id="s"></b> 秒
-        </div>
-        <el-button @click="showAlbum" type="success">一些时刻</el-button> <!-- 添加按钮 -->
-        <el-button @click="showLetter" type="primary">一封信</el-button> <!-- 添加按钮 -->
+  <!-- 在合适的地方插入 Vue 模板代码 -->
+  <div id="app">
+    <!-- 首页内容 -->
+    <div v-show="!showingAlbum && !showingLetter">
+      <el-row>
+        <el-col :span="12">
+          <!-- 第一个头像 -->
+          <el-avatar :size="120" src="/img/aking.jpg"></el-avatar>
+        </el-col>
+        <el-col :span="12">
+          <!-- 第二个头像 -->
+          <el-avatar :size="120" src="/img/rose.jpg"></el-avatar>
+        </el-col>
+      </el-row>
+      <h2>
+        Aking 和 Rose已经在一起
+      </h2>
+      <div class="timer">
+        <b id="d"></b> 天 <b id="h"></b> 小时 <b id="m"></b> 分钟 <b id="s"></b> 秒
       </div>
-      <div class="song">
-        <!-- 页面底部歌词 -->
-        <meting-js v-show="true" server="netease" type="playlist"
-          id="9330561931" fixed="true" autoplay="true" loop="all" order="random" preload="auto"
-          list-folded="true" list-max-height="500px" lrc-type="1">
-        </meting-js>
-      </div>
-      <!-- 相册页面 -->
-      <div v-if="showingAlbum">
-        <!-- 这里放置相册内容 -->
-        <h2>相册页面</h2>
-        <!-- 这里放置相册内容 -->
-        <p>这是相册的内容...</p>
-        <!-- 这里放置相册内容 -->
-        <el-button @click="hideAlbum" type="primary">返回</el-button>
-      </div>
+      <el-button @click="showAlbum" type="success">一些时刻</el-button> <!-- 添加按钮 -->
+      <el-button @click="showLetter" type="primary">一封信</el-button> <!-- 添加按钮 -->
+    </div>
+    <div class="song">
+      <!-- 页面底部歌词 -->
+      <meting-js v-show="true" server="netease" type="playlist"
+        id="9330561931" fixed="true" autoplay="true" loop="all" order="random" preload="auto"
+        list-folded="true" list-max-height="500px" lrc-type="1">
+      </meting-js>
+    </div>
+    <!-- 相册页面 -->
+    <div v-if="showingAlbum">
+      <!-- 这里放置相册内容 -->
+      <h2>相册页面</h2>
+      <!-- 这里放置相册内容 -->
+      <p>这是相册的内容...</p>
+      <!-- 这里放置相册内容 -->
+      <el-button @click="hideAlbum" type="primary">返回</el-button>
+    </div>
 
-      <!-- 信件页面 -->
-      <div v-if="showingLetter">
-        <!-- 这里放置信件内容 -->
-        <h2>信件页面</h2>
-        <!-- 这里放置信件内容 -->
-        <p>这是信件的内容...</p>
-        <!-- 这里放置信件内容 -->
+    <!-- 信件页面 -->
+    <div v-show="showingLetter">
+      <div v-show="showingLetter">
+        <v-card class="envelope" v-if="!opened">
+          <v-card-title class="envelope-title">To rose</v-card-title>
+          <v-card-text class="envelope-text">
+            <!-- 这里可以添加信件内容 -->
+          </v-card-text>
+          <v-card-actions>
+            <!-- 移动按钮到内容区域上方 -->
+            <v-btn class="envelope-btn" @click="openEnvelope">打开信封</v-btn>
+          </v-card-actions>
+          <!-- 在右上角添加邮票图片 -->
+          <img src="/img/stamp.png" class="stamp-image">
+        </v-card>
+
+        <v-card class="envelope" v-else>
+          <v-card-title class="envelope-title">信件</v-card-title>
+          <v-card-text class="envelope-text">
+            <div id="typed-text"></div>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn class="envelope-btn" @click="closeEnvelope">关闭信封</v-btn>
+          </v-card-actions>
+          <!-- 在右上角添加邮票图片 -->
+          <img src="/img/stamp.png" class="stamp-image">
+        </v-card>
+
         <el-button @click="hideLetter" type="primary">返回</el-button>
       </div>
     </div>
@@ -172,7 +203,8 @@
         return {
           showingAlbum: false,
           showingLetter: false,
-          showMusicPlayer: false // 控制音乐播放器显示与隐藏
+          showMusicPlayer: false, // 控制音乐播放器显示与隐藏
+          opened: false,
         };
       },
       methods: {
@@ -191,11 +223,37 @@
         hideLetter() {
           this.showMusicPlayer = true; // 返回首页时显示音乐播放器
           this.showingLetter = false;
+        },
+        openEnvelope() {
+          this.opened = true;
+        },
+        closeEnvelope() {
+          this.opened = false;
+          // 移除光标元素
+          const cursorElement = document.querySelector('.typed-cursor');
+          if (cursorElement) {
+            cursorElement.remove();
+          }
         }
       },
       mounted() {
-        // 页面加载完成后，自动隐藏音乐播放器
-        this.showMusicPlayer = true;
+
+      },
+      updated() {
+        // 移除已存在的光标元素
+        const cursorElement = document.querySelector('.typed-cursor');
+        if (cursorElement) {
+          cursorElement.remove();
+        }
+
+        this.$nextTick(() => {
+          new Typed('#typed-text', {
+            strings: ['这是一封神秘的信...', '里面藏着重要的信息...', '是否愿意打开看看？'],
+            typeSpeed: 100,
+            backSpeed: 50,
+            loop: false
+          });
+        });
       }
     });
   </script>
