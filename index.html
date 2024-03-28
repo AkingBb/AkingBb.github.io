@@ -128,10 +128,8 @@
     </div>
     <!-- 相册页面 -->
     <div v-if="showingAlbum">
-      <!-- 这里放置相册内容 -->
-      <h2>相册页面</h2>
-      <!-- 这里放置相册内容 -->
-      <p>这是相册的内容...</p>
+      <!-- 使用照片墙组件 -->
+      <photo-wall :photos="albumPhotos"></photo-wall>
       <!-- 这里放置相册内容 -->
       <el-button @click="hideAlbum" type="primary">返回</el-button>
     </div>
@@ -204,6 +202,15 @@
     </div>
   </div>
 
+  <!-- 创建照片墙组件 -->
+  <template id="photo-wall-template">
+    <div class="photo-wall">
+      <div v-for="(photo, index) in photos" :key="index" class="photo-item">
+        <img :src="photo.url" alt="photo">
+      </div>
+    </div>
+  </template>
+
   <!--计时器js-->
   <script>
     function timer() {
@@ -232,6 +239,14 @@
   <!--END：计时器js-->
 
   <script>
+    // 照片墙组件
+    Vue.component('photo-wall', {
+      template: '#photo-wall-template',
+      props: {
+        photos: Array // 接受一个包含照片信息的数组作为参数
+      }
+    });
+
     new Vue({
       el: '#app',
       data() {
@@ -241,6 +256,12 @@
           showMusicPlayer: false, // 控制音乐播放器显示与隐藏
           opened: false,
           isMobile: false, // 添加移动设备检测标志
+          albumPhotos: [ // 添加相册照片数组
+            { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' },
+            // { url: '/img/photo3.jpg' },
+            // 添加更多照片
+          ],
         };
       },
       methods: {
