@@ -58,6 +58,27 @@
         }
       }
 
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* 调整列数和每列宽度 */
+        gap: 10px;
+        /* 设置照片之间的间隔 */
+      }
+
+      .photo-item {
+        overflow: hidden;
+        /* 隐藏溢出部分 */
+      }
+
+      .photo {
+        width: 100%;
+        /* 设置照片宽度为容器宽度 */
+        height: auto;
+        /* 根据宽度等比例缩放高度 */
+      }
+
+
       /* 将页面所有文字的字体设置为 Montserrat */
       div {
         font-family: 'Montserrat', sans-serif;
@@ -128,8 +149,11 @@
     </div>
     <!-- 相册页面 -->
     <div v-if="showingAlbum">
-      <!-- 使用照片墙组件 -->
-      <photo-wall :photos="albumPhotos"></photo-wall>
+      <div class="photo-grid">
+        <div v-for="(photo, index) in albumPhotos" :key="index" class="photo-item">
+          <img :src="photo.url" alt="photo" class="photo">
+        </div>
+      </div>
       <!-- 这里放置相册内容 -->
       <el-button @click="hideAlbum" type="primary">返回</el-button>
     </div>
@@ -258,6 +282,12 @@
           isMobile: false, // 添加移动设备检测标志
           albumPhotos: [ // 添加相册照片数组
             { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
             { url: '/img/rose.jpg' },
             // { url: '/img/photo3.jpg' },
             // 添加更多照片
