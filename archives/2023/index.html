@@ -137,7 +137,7 @@
     </div>
 
     <!-- 信件页面 -->
-    <div v-show="showingLetter" :style="{ width: isMobile ? '80%' : 'auto' }">
+    <div v-show="showingLetter" :style="{ width: isMobile ? '100%' : 'auto' }">
       <div v-show="showingLetter">
         <v-card class="envelope" v-if="!opened" style="width: auto;">
           <v-card-title class="envelope-title">To rose</v-card-title>
@@ -152,7 +152,7 @@
           <img src="/img/stamp.png" class="stamp-image">
         </v-card>
 
-        <v-card class="envelope" v-else style="width: auto;>
+        <v-card class="envelope" v-else style="width: auto;">
           <v-card-title class="envelope-title">Dear rose: </v-card-title>
           <v-card-text class="envelope-text">
             <div id="typed-text"></div>
