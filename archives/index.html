@@ -49,7 +49,7 @@
       /* 适用于小屏幕设备的样式 */
       @media screen and (max-width: 600px) {
         .envelope {
-          width: 90%;
+          width: 100%;
           /* 使用百分比宽度以确保在小屏幕上自适应 */
           margin: 0 auto;
           /* 居中显示 */
@@ -137,7 +137,7 @@
     </div>
 
     <!-- 信件页面 -->
-    <div v-show="showingLetter">
+    <div v-show="showingLetter" :style="{ width: isMobile ? '90%' : 'auto' }">
       <div v-show="showingLetter">
         <v-card class="envelope" v-if="!opened">
           <v-card-title class="envelope-title">To rose</v-card-title>
@@ -153,7 +153,7 @@
         </v-card>
 
         <v-card class="envelope" v-else>
-          <v-card-title class="envelope-title">信件</v-card-title>
+          <v-card-title class="envelope-title">Dear rose: </v-card-title>
           <v-card-text class="envelope-text">
             <div id="typed-text"></div>
           </v-card-text>
@@ -205,6 +205,7 @@
           showingLetter: false,
           showMusicPlayer: false, // 控制音乐播放器显示与隐藏
           opened: false,
+          isMobile: false, // 添加移动设备检测标志
         };
       },
       methods: {
@@ -237,7 +238,8 @@
         }
       },
       mounted() {
-
+        // 判断是否为移动设备
+        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       },
       updated() {
         // 移除已存在的光标元素
