@@ -57,11 +57,16 @@
         }
       }
 
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
       .photo-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         /* 调整列数和每列宽度 */
-        gap: 10px;
+        gap: 5px;
         /* 设置照片之间的间隔 */
         position: relative;
         /*添加相对定位*/
@@ -83,20 +88,20 @@
 
       /* 将页面所有文字的字体设置为 Montserrat */
       div {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Satisfy', sans-serif;
         font-size: 36px;
         font-weight: 700;
       }
 
       /* 将页面所有文字的字体设置为 Montserrat */
       p {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Satisfy', sans-serif;
         font-size: 16px;
         font-weight: 300;
       }
 
       v-btn {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Satisfy', sans-serif;
         font-size: 36px;
         font-weight: 700;
       }
@@ -112,6 +117,7 @@
 
       /* 去掉默认效果 */
       * {
+        font-family: 'Satisfy', sans-serif;
         margin: 0;
         padding: 0;
       }
@@ -202,6 +208,16 @@
       .envelope-content p {
         margin: 10px;
       }
+
+      .envelope-btn {
+        font-family: 'Satisfy', sans-serif;
+        /* 应用艺术字体 */
+        font-size: 24px;
+        /* 调整字体大小 */
+        color: #ff0000;
+        /* 调整字体颜色 */
+        /* 可根据需要添加其他样式 */
+      }
     </style>
     <!--鼠标点击显示爱心-->
     <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
@@ -256,50 +272,52 @@
     </div>
     <!-- 相册页面 -->
     <div v-if="showingAlbum">
+      <div class="container">
 
-      <!-- 盒子容器 -->
-      <div class="perspective" style="z-index: -20;">
-        <div class="wrap" id="imgwrap">
-          <!-- 引入图片值页面 -->
-          <img class="f1" src="img/1.jpg" />
-          <img class="f1" src="img/2.jpg" />
-          <img class="f1" src="img/3.jpg" />
-          <img class="f1" src="img/4.jpg" />
-          <img class="f1" src="img/5.jpg" />
-          <img class="f1" src="img/6.jpg" />
-          <img class="f1" src="img/7.jpg" />
-          <img class="f1" src="img/8.jpg" />
-          <img class="f1" src="img/9.jpg" />
-          <img class="f1" src="img/10.jpg" />
+        <!-- 盒子容器 -->
+        <div class="perspective" style="z-index: -20;">
+          <div class="wrap" id="imgwrap">
+            <!-- 引入图片值页面 -->
+            <img class="f1" src="img/1.jpg" />
+            <img class="f1" src="img/2.jpg" />
+            <img class="f1" src="img/3.jpg" />
+            <img class="f1" src="img/4.jpg" />
+            <img class="f1" src="img/5.jpg" />
+            <img class="f1" src="img/6.jpg" />
+            <img class="f1" src="img/7.jpg" />
+            <img class="f1" src="img/8.jpg" />
+            <img class="f1" src="img/9.jpg" />
+            <img class="f1" src="img/10.jpg" />
 
-          <!-- 引入图片值页面 -->
-          <img class="f2" src="img/11.jpg" />
-          <img class="f2" src="img/12.jpg" />
-          <img class="f2" src="img/13.jpg" />
-          <img class="f2" src="img/14.jpg" />
-          <img class="f2" src="img/15.jpg" />
-          <img class="f2" src="img/16.jpg" />
-          <img class="f2" src="img/17.jpg" />
-          <img class="f2" src="img/18.jpg" />
-          <img class="f2" src="img/19.jpg" />
-          <img class="f2" src="img/20.jpg" />
+            <!-- 引入图片值页面 -->
+            <img class="f2" src="img/11.jpg" />
+            <img class="f2" src="img/12.jpg" />
+            <img class="f2" src="img/13.jpg" />
+            <img class="f2" src="img/14.jpg" />
+            <img class="f2" src="img/15.jpg" />
+            <img class="f2" src="img/16.jpg" />
+            <img class="f2" src="img/17.jpg" />
+            <img class="f2" src="img/18.jpg" />
+            <img class="f2" src="img/19.jpg" />
+            <img class="f2" src="img/20.jpg" />
 
-          <!-- 引入图片值页面 -->
-          <img class="f3" src="img/21.jpg" />
-          <img class="f3" src="img/22.jpg" />
-          <img class="f3" src="img/23.jpg" />
-          <img class="f3" src="img/24.jpg" />
-          <img class="f3" src="img/25.jpg" />
-          <img class="f3" src="img/26.jpg" />
-          <img class="f3" src="img/27.jpg" />
-          <img class="f3" src="img/28.jpg" />
-          <img class="f3" src="img/29.jpg" />
-          <img class="f3" src="img/30.jpg" />
+            <!-- 引入图片值页面 -->
+            <img class="f3" src="img/21.jpg" />
+            <img class="f3" src="img/22.jpg" />
+            <img class="f3" src="img/23.jpg" />
+            <img class="f3" src="img/24.jpg" />
+            <img class="f3" src="img/25.jpg" />
+            <img class="f3" src="img/26.jpg" />
+            <img class="f3" src="img/27.jpg" />
+            <img class="f3" src="img/28.jpg" />
+            <img class="f3" src="img/29.jpg" />
+            <img class="f3" src="img/30.jpg" />
+          </div>
         </div>
-      </div>
-      <div style="z-index: 20;">
-        <!-- 返回按钮 -->
-        <el-button @click="hideAlbum" type="primary">返回</el-button>
+        <div style="z-index: 20;">
+          <!-- 返回按钮 -->
+          <el-button @click="hideAlbum" type="primary">返回</el-button>
+        </div>
       </div>
     </div>
     <!-- 信件页面 -->
@@ -333,7 +351,7 @@
             <p>最后引用一句
               人们从诗人的字句里，选取自己心爱的意义；但是诗句的最终意义是指向着你。
               ——泰戈尔《吉檀迦利》 </p>
-            <p>祝我宝生日快乐，祝我老婆永远万事顺意且爱我，祝我们两周年快乐，深情不及久伴， 厚爱无需多言，你永远是我的小女孩~</p>
+            <p>祝我宝宝生日快乐，祝我宝宝永远万事顺意且爱我，祝我们两周年快乐，深情不及久伴， 厚爱无需多言，你永远是我的小女孩~</p>
           </v-card-text>
           <v-card-actions>
             <v-btn class="envelope-btn" @click="closeEnvelope">Flip</v-btn>
@@ -368,19 +386,19 @@
     // 遍历第一层图片并设置样式
     Array.prototype.forEach.call(oImg, function (ele, index) {
       // 设置旋转并沿Z轴平移的样式
-      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px)";
+      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(300px)";
     });
 
     // 遍历第二层图片并设置样式
     Array.prototype.forEach.call(oImg2, function (ele, index) {
       // 设置旋转并沿Z轴平移的样式
-      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px) translateY(240px)";
+      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(300px) translateY(240px)";
     });
 
     // 遍历第三层图片并设置样式
     Array.prototype.forEach.call(oImg3, function (ele, index) {
       // 设置旋转并沿Z轴平移的样式
-      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px) translateY(480px)";
+      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(300px) translateY(480px)";
     });
 
     // 设置整个相册的样式，使其立体显示
