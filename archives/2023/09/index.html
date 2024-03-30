@@ -44,7 +44,6 @@
   <head>
     <!-- 引入 Montserrat 字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
       /* 适用于小屏幕设备的样式 */
       @media screen and (max-width: 600px) {
@@ -64,11 +63,13 @@
         /* 调整列数和每列宽度 */
         gap: 10px;
         /* 设置照片之间的间隔 */
+        position: relative;
+        /*添加相对定位*/
       }
 
       .photo-item {
-        overflow: hidden;
-        /* 隐藏溢出部分 */
+        position: absolute;
+        /*添加绝对定位*/
       }
 
       .photo {
@@ -76,8 +77,9 @@
         /* 设置照片宽度为容器宽度 */
         height: auto;
         /* 根据宽度等比例缩放高度 */
+        transform-origin: center bottom;
+        /*设置变换的原点为底部中心*/
       }
-
 
       /* 将页面所有文字的字体设置为 Montserrat */
       div {
@@ -93,12 +95,56 @@
         src: local('Satisfy Regular'), local('Satisfy-Regular'), url(font/rP2Hp2yn6lkG50LoCZOIHQ.woff2) format('woff2');
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
-    </style>
 
+
+      /* 去掉默认效果 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+
+      @keyframes rotate {
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+
+      .perspective {
+        /*子元素透视 场景深度*/
+        perspective: 600px;
+      }
+
+      .wrap {
+        /* 3d */
+        width: 135px;
+        height: 240px;
+        margin: 100px auto;
+        position: relative;
+        /* border: 1px solid red; */
+        transform: rotateX(-20deg) rotateY(0deg);
+        transform-style: preserve-3d;
+
+      }
+
+      .wrap img {
+        display: block;
+        /* 绝对定位 */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: rotateY(0deg) translateZ(0px);
+        background: transparent;
+        box-shadow: 0 0 4px #fff;
+        border-radius: 5px;
+
+        /* webkit */
+      }
+    </style>
     <!--鼠标点击显示爱心-->
     <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js" "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js"></script>
     <!-- 引入 Vue 和 Element UI 相关的 CDN 链接 -->
     <script src=" https://cdn.jsdelivr.net/npm/vue@2"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
@@ -116,7 +162,6 @@
     <script src="/js/typed.js"></script>
     <link rel="stylesheet" href="/css/envelope.css">
   </head>
-
   <!-- 在合适的地方插入 Vue 模板代码 -->
   <div id="app">
     <!-- 首页内容 -->
@@ -149,15 +194,81 @@
     </div>
     <!-- 相册页面 -->
     <div v-if="showingAlbum">
-      <div class="photo-grid">
-        <div v-for="(photo, index) in albumPhotos" :key="index" class="photo-item">
-          <img :src="photo.url" alt="photo" class="photo">
+
+      <!-- 盒子容器 -->
+      <div class="perspective" style="z-index: -20;">
+        <div class="wrap" id="imgwrap">
+          <!-- 引入图片值页面 -->
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/rose.jpg" />
+          <img class="f1" src="img/aking.jpg" />
+
+          <!-- 引入图片值页面 -->
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/rose.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/rose.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/rose.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/rose.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/rose.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/rose.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/rose.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/rose.jpg" />
+          <img class="f2" src="img/aking.jpg" />
+          <!-- 引入图片值页面 -->
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/aking.jpg" />
+          <img class="f3" src="img/rose.jpg" />
         </div>
       </div>
-      <!-- 这里放置相册内容 -->
-      <el-button @click="hideAlbum" type="primary">返回</el-button>
+      <div style="z-index: 20;">
+        <!-- 返回按钮 -->
+        <el-button @click="hideAlbum" type="primary">返回</el-button>
+      </div>
     </div>
-
     <!-- 信件页面 -->
     <div v-show="showingLetter" :style="{ width: isMobile ? '100%' : 'auto' }">
       <div v-show="showingLetter">
@@ -173,7 +284,6 @@
           <!-- 在右上角添加邮票图片 -->
           <img src="/img/stamp.png" class="stamp-image">
         </v-card>
-
         <v-card class="envelope" v-else style="width: auto;">
           <v-card-title class="envelope-title">Dear rose: </v-card-title>
           <v-card-text class="envelope-text">
@@ -181,13 +291,15 @@
             <p> 见字如面，时光飞逝，转眼间两年啦，今天是我们的两周年纪念日，也是我陪在你身边的第二个生日，
               哥哥非常认真的祝你生日快乐，但不止快乐，我希望你永远平安喜乐，希望我们一起经历所有美好的瞬间，
               希望我们携手一起感受这个世界，希望你做最幸福的小猫，还希望很多很多，总之就是希望我们呢，永远在一起~(看来我想要的也很多) </p>
-            <p>回想与你的第一个生日，让一个小女孩非常失落的度过那天，想想也是肥肠愧疚，我是一个粗心大意且不善言辞的人，于你自认为无可挑剔又真心实意，实际未顾及你的地方更多，想来也满是亏欠，特别是对于一个高需求宝宝，我陪伴她的时间她真的会去认真计算~除了心疼也有自责，但是我始终相信，我们会非常幸福的走下去， 我们的日子也会越来越好。 
+            <p>
+              回想与你的第一个生日，让一个小女孩非常失落的度过那天，想想也是肥肠愧疚，我是一个粗心大意且不善言辞的人，于你自认为无可挑剔又真心实意，实际未顾及你的地方更多，想来也满是亏欠，特别是对于一个高需求宝宝，我陪伴她的时间她真的会去认真计算~除了心疼也有自责，但是我始终相信，我们会非常幸福的走下去，
+              我们的日子也会越来越好。
               回头看这两年，可能我还是那么幼稚，我们还是会有争吵，但是我们一起经历的，我想告诉你更重要的是， 你于我来说是独一无二且万分重要的，谢谢你的爱给我了温暖和力量，请牢记，我也永远爱你~</p>
             <p>其实脑海里还有很多爱与想念，但是在这封信里又好像难以诉说，既然文笔有限，那就让时间承载记录我们的故事，
               不确定你是否钟意这种表达爱的方式，但这可能是作为程序员男友能想到的表达爱的最浪漫形式，作为我们两的小站，记录下生活的点点滴滴。</p>
             <p>最后引用一句
               人们从诗人的字句里，选取自己心爱的意义；但是诗句的最终意义是指向着你。
-                                                 ——泰戈尔《吉檀迦利》 </p>
+              ——泰戈尔《吉檀迦利》 </p>
             <p>祝我宝生日快乐，祝我老婆永远万事顺意且爱我，祝我们两周年快乐，深情不及久伴， 厚爱无需多言，你永远是我的小女孩~</p>
           </v-card-text>
           <v-card-actions>
@@ -196,12 +308,10 @@
           <!-- 在右上角添加邮票图片 -->
           <img src="/img/stamp.png" class="stamp-image">
         </v-card>
-
         <el-button @click="hideLetter" type="primary">返回</el-button>
       </div>
     </div>
   </div>
-
   <!-- 创建照片墙组件 -->
   <template id="photo-wall-template">
     <div class="photo-wall">
@@ -210,6 +320,39 @@
       </div>
     </div>
   </template>
+
+  <!--  src="JS/photo.js" -->
+  <script type="text/javascript">
+    var oImg = document.getElementsByClassName('f1');
+    var oImg2 = document.getElementsByClassName('f2');
+    var oImg3 = document.getElementsByClassName('f3');
+    var len = oImg.length;
+    console.log(len);
+    var deg = 360 / len;
+
+    var oWrap = document.getElementById("imgwrap");
+
+    // 遍历第一层图片并设置样式
+    Array.prototype.forEach.call(oImg, function (ele, index) {
+      // 设置旋转并沿Z轴平移的样式
+      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px)";
+    });
+
+    // 遍历第二层图片并设置样式
+    Array.prototype.forEach.call(oImg2, function (ele, index) {
+      // 设置旋转并沿Z轴平移的样式
+      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px) translateY(240px)";
+    });
+
+    // 遍历第三层图片并设置样式
+    Array.prototype.forEach.call(oImg3, function (ele, index) {
+      // 设置旋转并沿Z轴平移的样式
+      ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px) translateY(480px)";
+    });
+
+    // 设置整个相册的样式，使其立体显示
+    oWrap.style.transform = "rotateX(-20deg) rotateY(0deg)";
+  </script>
 
   <!--计时器js-->
   <script>
@@ -237,7 +380,6 @@
     timer();
   </script>
   <!--END：计时器js-->
-
   <script>
     // 照片墙组件
     Vue.component('photo-wall', {
@@ -246,7 +388,6 @@
         photos: Array // 接受一个包含照片信息的数组作为参数
       }
     });
-
     new Vue({
       el: '#app',
       data() {
@@ -256,17 +397,18 @@
           showMusicPlayer: false, // 控制音乐播放器显示与隐藏
           opened: false,
           isMobile: false, // 添加移动设备检测标志
-          albumPhotos: [ // 添加相册照片数组
+          topPhotos: [ // 添加相册照片数组
             { url: '/img/aking.jpg' },
-            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
-            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
-            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
-            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
-            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
-            { url: '/img/rose.jpg' }, { url: '/img/aking.jpg' },
             { url: '/img/rose.jpg' },
-            // { url: '/img/photo3.jpg' },
-            // 添加更多照片
+          ],
+          middlePhotos: [ // 添加相册照片数组
+            { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' },
+
+          ],
+          bottomPhotos: [ // 添加相册照片数组
+            { url: '/img/aking.jpg' },
+            { url: '/img/rose.jpg' },
           ],
         };
       },
@@ -309,15 +451,6 @@
         if (cursorElement) {
           cursorElement.remove();
         }
-
-        // this.$nextTick(() => {
-        //   new Typed('#typed-text', {
-        //     strings: ['这是一封神秘的信...', '里面藏着重要的信息...', '是否愿意打开看看？'],
-        //     typeSpeed: 100,
-        //     backSpeed: 50,
-        //     loop: false
-        //   });
-        // });
       }
     });
   </script>
