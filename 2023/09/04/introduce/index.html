@@ -330,7 +330,7 @@
           </v-card-text>
           <v-card-actions>
             <!-- 移动按钮到内容区域上方 -->
-            <v-btn class="envelope-btn" @click="flipEnvelope">Flip</v-btn>
+            <el-button class="envelope-btn" @click="flipEnvelope" type="warning">Flip</el-button>
           </v-card-actions>
           <!-- 在右上角添加邮票图片 -->
           <img src="/img/stamp.png" class="stamp-image">
@@ -354,7 +354,7 @@
             <p>祝我宝宝生日快乐，祝我宝宝永远万事顺意且爱我，祝我们两周年快乐，深情不及久伴， 厚爱无需多言，你永远是我的小女孩~</p>
           </v-card-text>
           <v-card-actions>
-            <v-btn class="envelope-btn" @click="closeEnvelope">Flip</v-btn>
+            <el-button class="envelope-btn" @click="closeEnvelope" type="warning">Flip</el-button>
           </v-card-actions>
           <!-- 在右上角添加邮票图片 -->
           <img src="/img/stamp.png" class="stamp-image">
@@ -492,9 +492,9 @@
           }
         },
         flipEnvelope() {
-          this.$refs.envelope.classList.toggle('flipped');
           this.opened = !this.opened;
         }
+
       },
       mounted() {
         // 判断是否为移动设备
