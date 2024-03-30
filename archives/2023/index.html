@@ -88,6 +88,19 @@
         font-weight: 700;
       }
 
+      /* 将页面所有文字的字体设置为 Montserrat */
+      p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+      }
+
+      v-btn {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+      }
+
       @font-face {
         font-family: 'Satisfy';
         font-style: normal;
@@ -279,7 +292,7 @@
           </v-card-text>
           <v-card-actions>
             <!-- 移动按钮到内容区域上方 -->
-            <v-btn class="envelope-btn" @click="openEnvelope">打开信封</v-btn>
+            <v-btn class="envelope-btn" @click="openEnvelope">Flip</v-btn>
           </v-card-actions>
           <!-- 在右上角添加邮票图片 -->
           <img src="/img/stamp.png" class="stamp-image">
@@ -303,7 +316,7 @@
             <p>祝我宝生日快乐，祝我老婆永远万事顺意且爱我，祝我们两周年快乐，深情不及久伴， 厚爱无需多言，你永远是我的小女孩~</p>
           </v-card-text>
           <v-card-actions>
-            <v-btn class="envelope-btn" @click="closeEnvelope">关闭信封</v-btn>
+            <v-btn class="envelope-btn" @click="closeEnvelope">Flip</v-btn>
           </v-card-actions>
           <!-- 在右上角添加邮票图片 -->
           <img src="/img/stamp.png" class="stamp-image">
