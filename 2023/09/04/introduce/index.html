@@ -153,6 +153,55 @@
 
         /* webkit */
       }
+
+      @keyframes flip {
+        from {
+          transform: rotateY(0deg);
+        }
+
+        to {
+          transform: rotateY(180deg);
+        }
+      }
+
+      .envelope.flipped {
+        transform: rotateY(180deg);
+      }
+
+      .envelope-container {
+        perspective: 1000px;
+      }
+
+      .envelope {
+        width: 200px;
+        height: 150px;
+        position: relative;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+      }
+
+      .envelope.opened {
+        transform: rotateY(180deg);
+      }
+
+      .envelope-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+      }
+
+      .envelope-content h2 {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .envelope-content p {
+        margin: 10px;
+      }
     </style>
     <!--鼠标点击显示爱心-->
     <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
@@ -212,69 +261,40 @@
       <div class="perspective" style="z-index: -20;">
         <div class="wrap" id="imgwrap">
           <!-- 引入图片值页面 -->
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
-          <img class="f1" src="img/rose.jpg" />
-          <img class="f1" src="img/aking.jpg" />
+          <img class="f1" src="img/1.jpg" />
+          <img class="f1" src="img/2.jpg" />
+          <img class="f1" src="img/3.jpg" />
+          <img class="f1" src="img/4.jpg" />
+          <img class="f1" src="img/5.jpg" />
+          <img class="f1" src="img/6.jpg" />
+          <img class="f1" src="img/7.jpg" />
+          <img class="f1" src="img/8.jpg" />
+          <img class="f1" src="img/9.jpg" />
+          <img class="f1" src="img/10.jpg" />
 
           <!-- 引入图片值页面 -->
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/rose.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/rose.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/rose.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/rose.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/rose.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/rose.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/rose.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/aking.jpg" />
-          <img class="f2" src="img/rose.jpg" />
-          <img class="f2" src="img/aking.jpg" />
+          <img class="f2" src="img/11.jpg" />
+          <img class="f2" src="img/12.jpg" />
+          <img class="f2" src="img/13.jpg" />
+          <img class="f2" src="img/14.jpg" />
+          <img class="f2" src="img/15.jpg" />
+          <img class="f2" src="img/16.jpg" />
+          <img class="f2" src="img/17.jpg" />
+          <img class="f2" src="img/18.jpg" />
+          <img class="f2" src="img/19.jpg" />
+          <img class="f2" src="img/20.jpg" />
+
           <!-- 引入图片值页面 -->
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
-          <img class="f3" src="img/aking.jpg" />
-          <img class="f3" src="img/rose.jpg" />
+          <img class="f3" src="img/21.jpg" />
+          <img class="f3" src="img/22.jpg" />
+          <img class="f3" src="img/23.jpg" />
+          <img class="f3" src="img/24.jpg" />
+          <img class="f3" src="img/25.jpg" />
+          <img class="f3" src="img/26.jpg" />
+          <img class="f3" src="img/27.jpg" />
+          <img class="f3" src="img/28.jpg" />
+          <img class="f3" src="img/29.jpg" />
+          <img class="f3" src="img/30.jpg" />
         </div>
       </div>
       <div style="z-index: 20;">
@@ -283,7 +303,7 @@
       </div>
     </div>
     <!-- 信件页面 -->
-    <div v-show="showingLetter" :style="{ width: isMobile ? '100%' : 'auto' }">
+    <div v-show="showingLetter" :style="{ width: isMobile ? '100%' : 'auto' }" ref="envelope">
       <div v-show="showingLetter">
         <v-card class="envelope" v-if="!opened" style="width: auto;">
           <v-card-title class="envelope-title">To rose</v-card-title>
@@ -292,12 +312,12 @@
           </v-card-text>
           <v-card-actions>
             <!-- 移动按钮到内容区域上方 -->
-            <v-btn class="envelope-btn" @click="openEnvelope">Flip</v-btn>
+            <v-btn class="envelope-btn" @click="flipEnvelope">Flip</v-btn>
           </v-card-actions>
           <!-- 在右上角添加邮票图片 -->
           <img src="/img/stamp.png" class="stamp-image">
         </v-card>
-        <v-card class="envelope" v-else style="width: auto;">
+        <v-card class="envelope" v-else style="width: auto;" ref="envelope">
           <v-card-title class="envelope-title">Dear rose: </v-card-title>
           <v-card-text class="envelope-text">
             <div id="typed-text"></div>
@@ -452,11 +472,21 @@
           if (cursorElement) {
             cursorElement.remove();
           }
+        },
+        flipEnvelope() {
+          this.$refs.envelope.classList.toggle('flipped');
+          this.opened = !this.opened;
         }
       },
       mounted() {
         // 判断是否为移动设备
         this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const envelopeContainer = this.$refs.envelopeContainer;
+        const envelope = this.$refs.envelope;
+
+        envelopeContainer.addEventListener("click", () => {
+          envelope.classList.toggle("opened");
+        });
       },
       updated() {
         // 移除已存在的光标元素
